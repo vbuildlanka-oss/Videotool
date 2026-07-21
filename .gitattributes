@@ -1,9 +1,16 @@
-# Force Windows CRLF line endings on all batch files.
-# Without this, .bat files authored on Linux/macOS get LF endings,
-# which makes Windows CMD crash / close the window instantly.
-*.bat text eol=crlf
-*.cmd text eol=crlf
+# Treat Windows batch files as binary so git stores the EXACT bytes
+# (including CRLF line endings) and never normalizes them to LF.
+#
+# This guarantees that EVERY download method delivers working CRLF files:
+#   - git clone
+#   - Download ZIP
+#   - Download raw file (single file)  <-- this one needs -text to work
+#
+# Windows CMD requires CRLF. LF-only .bat files cause the window to
+# close instantly ("vanishes in seconds").
+*.bat -text
+*.cmd -text
 
-# Keep Python and docs as LF
+# Python and docs stay as normal text (LF)
 *.py text eol=lf
 *.md text eol=lf
