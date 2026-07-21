@@ -131,6 +131,9 @@ if "%~1"=="" (
     echo.
     set /p "INPUT_PATH=  Enter video file or folder path: "
 
+    REM Strip any surrounding quotes the user may have pasted
+    set "INPUT_PATH=!INPUT_PATH:"=!"
+
     if "!INPUT_PATH!"=="" (
         echo.
         echo  No input provided. Exiting.
@@ -141,7 +144,7 @@ if "%~1"=="" (
     )
 
     echo.
-    !PYTHON_CMD! "%~dp0videotool.py" !INPUT_PATH!
+    !PYTHON_CMD! "%~dp0videotool.py" "!INPUT_PATH!"
 ) else if "%~2"=="" (
     REM One argument - input file/folder only
     !PYTHON_CMD! "%~dp0videotool.py" "%~1"

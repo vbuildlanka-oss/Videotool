@@ -1,0 +1,9 @@
+# Force Windows CRLF line endings on all batch files.
+# Without this, .bat files authored on Linux/macOS get LF endings,
+# which makes Windows CMD crash / close the window instantly.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Keep Python and docs as LF
+*.py text eol=lf
+*.md text eol=lf

@@ -396,13 +396,9 @@ if "!PYTHON_OK!"=="1" (
 )
 
 if "!FFMPEG_OK!"=="1" (
-    "!FFMPEG_PATH!" -version 2>nul | findstr /C:"ffmpeg version" >nul 2>nul
+    "!FFMPEG_PATH!" -version >nul 2>nul
     if !errorlevel! equ 0 (
-        for /f "tokens=1,2,3" %%a in ('"!FFMPEG_PATH!" -version 2^>^&1') do (
-            if "%%a"=="ffmpeg" echo   FFmpeg %%c - OK
-            goto :ffver_done
-        )
-        :ffver_done
+        echo   FFmpeg - OK
     ) else (
         echo   [WARN] FFmpeg test failed - may need restart
     )
