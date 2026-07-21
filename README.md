@@ -18,7 +18,25 @@ A lightweight, local tool that strips C2PA content credentials, EXIF tags, and a
 
 ---
 
-## Requirements
+## Installation
+
+### Automatic Installer (Recommended)
+
+1. Download or clone this repository
+2. **Right-click `Install-VideoTool.bat`** → **Run as administrator**
+3. The installer will automatically:
+   - Download and install Python 3.12 (if not already installed)
+   - Download and install FFmpeg (if not already installed)
+   - Add both to your system PATH
+   - Verify all VideoTool files are present
+   - Create Desktop shortcuts for easy access
+4. Done! Start using VideoTool immediately.
+
+> **Tip:** Running as Administrator ensures Python and FFmpeg can be added to the system PATH properly.
+
+### Manual Installation
+
+If you prefer to install dependencies yourself:
 
 | Requirement | Details |
 |-------------|---------|
@@ -28,7 +46,7 @@ A lightweight, local tool that strips C2PA content credentials, EXIF tags, and a
 
 > **Note:** When installing Python, make sure to check **"Add Python to PATH"**.
 
-### FFmpeg Installation Options
+#### FFmpeg Installation Options
 
 1. **Add to system PATH** (recommended) — Install FFmpeg and add its `bin` folder to your PATH
 2. **Place alongside the tool** — Put `ffmpeg.exe` in the same folder as `VideoTool.bat`
@@ -119,6 +137,7 @@ python videotool.py input_video.mp4 ./output_folder
 
 ```
 Videotool/
+├── Install-VideoTool.bat    # One-click installer (run first!)
 ├── VideoTool.bat            # Main launcher (interactive + CLI)
 ├── VideoTool-DragDrop.bat   # Drag-and-drop launcher
 ├── videotool.py             # Core Python processing script
